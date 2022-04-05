@@ -4,7 +4,17 @@
 
 ### JDK、JRE、JVM有什么区别
 
+- JDK:Java Development Kit 针对Java程序员的产品
+- JRE:Java Runtime Environment 是运行Java的环境集合
+- JVM:Java虚拟机用于运行Java字节码文件（.class文件），跨平台的核心
+    - 跨平台特性，JVM层面开发，又JVM转义其他平台api完成对于工作
+
 ### 常用数字类型的区别
+
+| 名称 | 取值范围 | 存储空间 |
+| :---: | :---: | :---: |
+| 字节(Byte) | -2^7^ ~ 2^7^-1 <br> -128 ~ 127  | 1个字节 |
+| 短整数(short) | -2^15^ ~ 2^15^-1 <br> -32768 ~ 32767 | 2个字节 |
 
 ### Float在JVM的表达方式及使用陷阱
 
