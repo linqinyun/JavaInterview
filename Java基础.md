@@ -157,7 +157,31 @@ public class PrimeNumber {
 
 ### String与字符串常量
 
+- 字符串创建后由final修饰，不可变
+- 字符串默认保存在方法区域中特定开辟的区域->常量池
+- 不同String对象指向相同字符串，其实同指相同的地址
+
+```Java
+String s1="abc";
+String s2="def";
+String s3="abc"+"def";
+String s4="abcdef";
+String s5=s2+"def";
+String s6=new String("abc");
+System.out.println(s1==s2);//true 比较地址
+System.out.println(s3==s4);//true 比较地址
+System.out.println(s4==s5);//false 实际使用中s2为引用类型，编译期间无法确定数值，运行时确定，s5为新的地址与s4不同
+System.out.println(s4.equals(s5));//true 比较字符内容
+System.out.println(s1==s6);//false new出的对象，存放地址不同
+```
+
 ### String、StringBuilder与StringBuffer的区别
+
+|   | String | StringBuilder | StringBuffer |
+| :---: | :---: | :---: | :---: |
+| 执行速度 | 最差 | 其次 | 最高 |
+| 线程安全 | 线程安全 | 线程安全 | 线程不安全 |
+| 使用场景 | 少量字符串操作 | 多线程环境下的大量操作 | 单线程环境下的大量操作 |
 
 ## 集合
 
