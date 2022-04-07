@@ -578,8 +578,136 @@ public class DeadLock {
 
 ### JVM的内存组成
 
+![JVM内存组成](./resource/j2.bmp)
+
+>面试常考，JVM内存中通用回答，五大区域
+
+- 数据共享区-所有线程共享
+- 方法区：虚拟机加载的**类、常量、静态变量、方法声明**等数据。
+- 堆：**Java变量**，存放程序运行时的**对象实例**，是垃圾回收**主要区域，为最大区域**。
+
+---
+
+- 数据私有区-线程独享
+- 程序计数器PC：**行号计数器**，程序涉及 分支、跳转、循环、异常处理、线程恢复。
+- 虚拟机栈：**为Java方法服务**，为每一个方法创建一个栈帧 **[方法执行的状态]**，（栈帧）可以看出对方法的引用，每个栈帧在内存中的实例。
+- 本地方法栈：**为执行本地方法服务**，为操作系统级别的底层方法。
+
 ### GC垃圾回收及算法介绍
+
+- GC(Garbage Collection)用于回收不再使用的内存
+- GC负责3项任务：分配内存、确保引用、回收内存
+- GC回收的依据，某个对象没有任何引用，则可以被回收
+
+>GC是一把双刃剑，一方面程序开发提供便捷，另一方面不断地对内存进行监听等，增加JVM负担，降低程序执行效率。
+
+#### GC回收算法
+
+1. 引用计数算法
+   1. 对象计数，无计数则回收
+   2. 两个对象相互引用，出现循环引用，此算法无法解决
+   3. 最简单，效率最低
+2. 跟踪回收算法
+   1. JVM维护的对象引用图
+   2. 遍历结束后，没有被遍历的对象则回收
+3. 压缩回收算法
+   1. 将JVM活动的对象放置集中区域中
+   2. 性能损失大
+4. 复制回收算法
+   1. 将堆分成两个相同大小的区域
+   2. 任何时刻，只有一个区域使用，直至使用完
+   3. 中断程序运行，通过遍历
+   4. 活动对象紧密在一起复制到另一个区域中
+   5. 清理碎片
+   6. 既清理又整理，访问、寻址效率高
+   7. 需要空间大，需要中断程序，降低程序效率
+5. **按代回收算法**
+   1. 主流算法
+   2. 解决复制回收算法问题
+   3. 将堆分成多个子堆，每个子堆为一代。
+   4. 优先收集年轻对象，多次使用对象，将对象移入高一级堆中
+   5. 低代（扫描频率高）->高代（扫描频率低）
 
 ### Java的内存泄露场景
 
+>Java存在内存泄漏
+---
+>内存泄漏:一个不再程序被使用的对象、变量还在内存占用空间
+---
+
+1. 静态集合类
+   1. 存放数据量比较大
+   2. 没有回收导致泄漏
+2. 各种连接
+   1. 数据库连接、网络连接、IO连接等
+   2. 打开未被关闭导致不会被回收
+3. 监听器
+   1. 监听器全局存在
+   2. 监听对象没有有效控制
+4. 不合理作用域
+   1. **作用域最小化原则**为软件开发原则
+   2. 变量定义范围大于使用范围
+   3. 没有把引用对象设置null，导致内存泄漏，情况极少发生。
+
 ### 请实现对象浅复制与深复制
+
+>Object中存在一个对象复制，这里的复制指浅复制
+
+- 浅复制：只对对象及变量值进行复制，引用对象地址不变
+- 深复制：不仅对象及变量进行复制，引用对象也进行复制
+
+```Java
+package com.lin.interview.clone;
+
+import java.io.*;
+
+public class Dancer implements Cloneable,Serializable{
+    private String name;
+    private Dancer partner;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Dancer getPartner() {
+        return partner;
+    }
+
+    public void setPartner(Dancer partner) {
+        this.partner = partner;
+    }
+
+    //深复制 采用序列化方式
+    public Dancer deepClone() throws IOException, ClassNotFoundException {
+        //序列化,将内存中的对象序列化为字节数组
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(this);
+
+        //反序列化，将字节数组转回为对象，同时完成深复制的任务
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+        return (Dancer)ois.readObject();
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException, IOException, ClassNotFoundException {
+        Dancer d1 = new Dancer();
+        d1.setName("刘明");
+        Dancer d2 = new Dancer();
+        d2.setName("吴明霞");
+        d1.setPartner(d2);
+        System.out.println("Partner:" + d2.hashCode());
+        //浅复制
+        Dancer shallow = (Dancer) d1.clone();
+        System.out.println("浅复制："+shallow.getPartner().hashCode());
+        //深复制
+        Dancer deep = (Dancer)d1.deepClone();
+        System.out.println("深复制："+deep.getPartner().hashCode());
+    }
+}
+
+```
