@@ -340,11 +340,239 @@ public class FileCopy {
 
 ### 实现多线程的三种方式
 
+- 继承Thread父类
+  
+```Java
+package com.lin.interview.thread;
+
+import java.util.Random;
+
+public class ThreadSample1 {
+    public static void main(String[] args) {
+        //五条线程
+        Runnerl r1 = new Runnerl();
+        r1.setName("张三");
+        Runnerl r2 = new Runnerl();
+        r2.setName("李四");
+        Runnerl r3 = new Runnerl();
+        r3.setName("王五");
+        r1.start();
+        r2.start();
+        r3.start();
+        //****************
+    }
+
+
+}
+/**
+ * 第一种 Thread
+ */
+class Runnerl extends Thread{
+    @Override
+    public void run(){
+        Integer speed = new Random().nextInt(10)+1;
+        for (int i=1;i<=1000;i++){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(this.getName()+"已前进"+(i*speed)+"米");
+        }
+    }
+}
+
+```
+
+- 实现Runnable接口
+
+```Java
+package com.lin.interview.thread;
+
+import java.util.Random;
+
+public class ThreadSample2 {
+    public static void main(String[] args) {
+        Thread r1 = new Thread(new Runner2());
+        r1.setName("张三");
+        Thread r2 = new Thread(new Runner2());
+        r2.setName("李四");
+        Thread r3 = new Thread(new Runner2());
+        r3.setName("王五");
+        r1.start();
+        r2.start();
+        r3.start();
+    }
+}
+
+/**
+ * 第二种
+ * 第二种与第一种 底层一致
+ * 开发中更推荐 第二种，接口实现 ，更加友好
+ */
+class Runner2 implements Runnable {
+
+    @Override
+    public void run() {
+        Integer speed = new Random().nextInt(10) + 1;
+        for (int i = 1; i <= 100; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + "已前进" + (i * speed) + "米");
+        }
+    }
+}
+
+```
+
+- 实现Callable接口
+
+```Java
+package com.lin.interview.thread;
+
+import java.util.Random;
+import java.util.concurrent.*;
+
+public class ThreadSample3 {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        // 创建一个固定长度的线程池
+        ExecutorService threadPool = Executors.newFixedThreadPool(3);
+        Runner3 r1 = new Runner3();
+        Runner3 r2 = new Runner3();
+        Runner3 r3 = new Runner3();
+        r1.setName("张三");
+        r2.setName("李四");
+        r3.setName("王五");
+        Future<Long> result1 = threadPool.submit(r1);
+        Future<Long> result2 = threadPool.submit(r2);
+        Future<Long> result3 = threadPool.submit(r3);
+        System.out.println(result1.get());
+        System.out.println(result2.get());
+        System.out.println(result3.get());
+    }
+}
+/**
+ * 第三种
+ * JDK 1.5以上
+ * 高级做法
+ */
+class Runner3 implements Callable<Long>{
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public Long call() throws Exception {
+        Integer speed = new Random().nextInt(10) + 1;
+        Long distince = 0l;
+        for (int i = 1; i <= 100; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            distince = (long)(i*speed);
+            System.out.println(this.getName() + "已前进" + (i * speed) + "米");
+        }
+        return distince;
+    }
+}
+
+```
+
+>主线程（守护线程）、回收线程（JVM回收资源）
+
 ### 请阐述线程的状态及触发机制
+
+#### 线程有哪些状态
+
+1. 新建(new)
+2. 就绪(ready)
+3. 运行(running)
+4. 阻塞(blocked)
+5. 死亡(dead)
+
+![生命周期](./resource/j1.bmp)
 
 ### 实现线程同步的三种方式
 
+- synchronized关键字（只能有一个线程进行访问）
+  - 方法前增加synchronized关键字
+  - synchronized块，进行包裹
+- wait()[进入等待状态]与notify()[进入激活状态]
+  - 手动进行
+  - notify，仅能唤醒一个线程即默认等待队列第一个线程
+  - notifyAll，不是唤醒所有，而是根据某种策略线程去竞争
+- Lock JDK5以上并发支持 JUC
+  - 重入锁来进行同步
+
+#### 补充
+
+1. ①初始(NEW)：新创建了一个线程对象，但还没有调用start()方法。
+②运行(RUNNABLE)：Java线程中将就绪（ready）和运行中（running）两种状态笼统的成为“运行”。
+线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权，此时处于就绪状态（ready）。就绪状态的线程在获得cpu 时间片后变为运行中状态（running）。
+③阻塞(BLOCKED)：表线程阻塞于锁。
+④等待(WAITING)：进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）。
+⑤超时等待(TIME_WAITING)：该状态不同于WAITING，它可以在指定的时间内自行返回。
+⑥终止(TERMINATED)：表示该线程已经执行完毕。
+2. 重量级锁指的就是一般意义上synchronized的同步方式，通过对象内部的监视器（monitor）实现，其中monitor的本质是依赖于底层操作系统的Mutex Lock实现，操作系统实现线程之间的切换需要从用户态到内核态的切换， 切换成本非常高。
+3. 线程的切换是进程切换的基础。
+每一个进程都包含一个映射表，如果进程切换了，那么程序选择的映射表肯定也不一样；进程的切换其实是包含两个部分的，第一个指令的切换，第二个映射表的切换。指令的切换就是从这段程序跳到另外一段程序执行，映射表切换就是执行不同的进程，所选择的映射表不一样。线程的切换只有指令的切换，同处于一个进程里面，不存在映射表的切换。进程的切换就是在线程切换的基础上加上映射表的切换。
+
 ### 死锁的产生
+
+> 多线程编程中，多线程访问资源，资源没有及时释放，资源交叉引用，导致程序假死。
+
+```Java
+//线程死锁例子
+package com.lin.interview;
+
+public class DeadLock {
+    private static String fileA = "A文件";
+    private static String fileB = "B文件";
+
+    public static void main(String[] args) {
+
+        new Thread(){ //线程1
+            public void run(){
+                while(true) {
+                    synchronized (fileA) {//打开文件A，线程独占
+                        System.out.println(this.getName() + ":文件A写入");
+                        synchronized (fileB) {
+                            System.out.println(this.getName() + ":文件B写入");
+                        }
+                        System.out.println(this.getName() + ":所有文件保存");
+                    }
+                }
+            }
+        }.start();
+
+        new Thread(){ //线程2
+            public void run(){
+                while(true) {
+                    synchronized (fileB) {//打开文件B，线程独占
+                        System.out.println(this.getName() + ":文件B写入");
+                        synchronized (fileA) {
+                            System.out.println(this.getName() + ":文件A写入");
+                        }
+                        System.out.println(this.getName() + ":所有文件保存");
+                    }
+                }
+            }
+        }.start();
+    }
+}
+
+```
 
 ## 垃圾回收与JVM内存
 
