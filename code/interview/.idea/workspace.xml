@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0f74539-b219-4592-b52a-656bb0a3f854" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="f0f74539-b219-4592-b52a-656bb0a3f854" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web基础与数据处理.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web基础与数据处理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_47.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview.iml" beforeDir="false" afterPath="$PROJECT_DIR$/interview.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.47.jar" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,15 +18,15 @@
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -61,6 +67,8 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectId" id="27WayTXgw5HLIFEmYdggfV8XP1j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -95,15 +103,22 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545913178170" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.47.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
@@ -114,28 +129,17 @@
       <recent name="D:\imooc\面试课程\源代码\interview\lib" />
       <recent name="D:\imooc\面试课程\源代码\interview\src\com\imooc\interview" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java面试\JavaInterview\code\interview\lib" />
+      <recent name="D:\imooc\面试课程\源代码\interview\lib" />
+      <recent name="D:\imooc\面试课程\源代码\interview" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.imooc.interview.jdbc" />
       <recent name="com.imooc.interview.sorter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\imooc\面试课程\源代码\interview\lib" />
-      <recent name="D:\imooc\面试课程\源代码\interview" />
-    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.StatementSample">
+  <component name="RunManager" selected="应用程序.Dancer">
     <configuration name="Dancer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.imooc.interview.clone.Dancer" />
       <module name="interview" />
@@ -201,16 +205,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.StatementSample" />
-        <item itemvalue="Application.MysqlJDBC" />
-        <item itemvalue="Application.DeadLock" />
-        <item itemvalue="Application.Dancer" />
-        <item itemvalue="Application.ExecutionSequence" />
-      </list>
-    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -231,6 +227,7 @@
       <workItem from="1545967233019" duration="1256000" />
       <workItem from="1546005920420" duration="597000" />
       <workItem from="1546046684588" duration="10000" />
+      <workItem from="1649438551095" duration="542000" />
     </task>
     <servers />
   </component>
@@ -305,10 +302,21 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/lang/Math.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="421" column="25" selection-start-line="421" selection-start-column="25" selection-end-line="421" selection-end-column="25" />
@@ -326,14 +334,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/util/List.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/awt/List.class">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/jre/lib/rt.jar!/java/awt/List.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
@@ -357,7 +365,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/util/Collections.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="173" column="27" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="27" />
@@ -368,7 +376,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/util/Comparator.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/util/Comparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="111" column="26" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="26" />
@@ -387,7 +395,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/util/TreeSet.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/util/TreeSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-384">
           <caret line="122" column="11" selection-start-line="122" selection-start-column="11" selection-end-line="122" selection-end-column="11" />
@@ -419,7 +427,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/io/InputStream.class">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/jre/lib/rt.jar!/java/io/InputStream.class">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -435,7 +443,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/lang/Thread.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="462" column="26" selection-start-line="462" selection-start-column="18" selection-end-line="462" selection-end-column="26" />
@@ -498,7 +506,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/lang/Cloneable.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/lang/Cloneable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1073">
           <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
