@@ -77,6 +77,10 @@ FirshServlet -> 用户
 
 ### Statement和PreparedStatement的区别
 
+- PreparedStatement是预编译的SQL语句，效率高于Statement
+- PreparedStatement支持?操作符，相对于Statement更加灵活
+- PreparedStatement可以防止SQL注入，安全性高于Statement
+
 ### 请说明JDBC使用步骤
 
 ### SQL编程练习-1
