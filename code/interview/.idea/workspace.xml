@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0f74539-b219-4592-b52a-656bb0a3f854" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Web基础与数据处理.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web基础与数据处理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_47.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview.iml" beforeDir="false" afterPath="$PROJECT_DIR$/interview.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.47.jar" beforeDir="false" />
-    </list>
+    <list default="true" id="f0f74539-b219-4592-b52a-656bb0a3f854" name="Default Changelist" comment="Default Changelist" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +219,7 @@
       <workItem from="1545967233019" duration="1256000" />
       <workItem from="1546005920420" duration="597000" />
       <workItem from="1546046684588" duration="10000" />
-      <workItem from="1649438551095" duration="542000" />
+      <workItem from="1649438551095" duration="798000" />
     </task>
     <servers />
   </component>
