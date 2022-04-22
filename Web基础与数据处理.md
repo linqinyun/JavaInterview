@@ -139,6 +139,107 @@ public class MysqlJDBC {
 
 ### SQL编程练习-1
 
+- 数据表 scott.sql
+
+1. 按部门编号升序、工资倒序的排列员工信息
+
+```sql
+select
+*
+from emp
+order by deptno asc,sal desc;
+```
+
+2. 列出deptno=30的部门名称及员工
+
+```sql
+select
+d.dname,e.*
+from emp e left join dept d on e.deptno=d.deptno
+where e.deptno=30;
+
+select
+d.dname,e.*
+from emp e,dept d
+where e.deptno=d.deptno and e.deptno=30;
+```
+
+3. 列出每个部门最高、最低及平均工资、人数
+
+```sql
+select
+deptno,
+max(sal) as maxSal,
+min(sal) as minSal,
+avg(sal) as avgSal,
+count(*)
+from emp
+group by deptno;
+```
+
 ### SQL编程练习-2
 
+1. 列出市场部(SALES)及研发部(RESEARCH)的员工
+
+```sql
+select 
+d.dname,e.*
+from emp e,dept d
+where e.deptno=d.deptno and (d.dname='RESEARCH' or d.dname='SALES');
+```
+
+2. 列出人数超过3人的部门
+
+```sql
+select 
+d.dname,count(*) num
+from emp e,dept d
+where e.deptno=d.deptno 
+group by d.dname having num>3;
+```
+
+3. 计算MILLER年薪比SMITH高多少
+
+```sql
+select
+a.a_sal,b.b_sal,a.a_sal-b.b_sal
+from
+(select sal * 12 a_sal from emp where ename='MILLER') a,
+(select sal * 12 b_sal from emp where ename='SMITH') b;
+```
+
 ### SQL编程练习-3
+
+1. 列出直接向King汇报的员工
+
+```sql
+select * 
+from emp
+where mgr = (select empno from emp where ename='KING');
+
+select e.*
+from emp e, (select empno from emp where ename='KING') k
+where e.mgr=k.empno;
+```
+
+2. 列出公司所有员工的工龄，并倒序排序
+
+```sql
+select date_format(now(),"%Y%m%d");
+
+select * from (
+select emp.*, date_format(now(),"%Y")-date_format(hiredate,"%Y") yg
+from emp
+) d
+order by d.yg desc;
+```
+
+3. 计算管理者与基层员工平均薪资差额
+
+```sql
+select
+a.a_avg-b.b_avg
+from
+(select avg(sal) a_avg from emp where job='MANAGER' or job='PRESIDENT') a,
+(select avg(sal) b_avg from emp where job in ('CLERK','SALESMAN','ANALYST')) b;
+```
