@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0f74539-b219-4592-b52a-656bb0a3f854" name="Default Changelist" comment="Default Changelist" />
+    <list default="true" id="f0f74539-b219-4592-b52a-656bb0a3f854" name="Default Changelist" comment="Default Changelist">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,6 +222,8 @@
       <workItem from="1546005920420" duration="597000" />
       <workItem from="1546046684588" duration="10000" />
       <workItem from="1649438551095" duration="798000" />
+      <workItem from="1651717458304" duration="992000" />
+      <workItem from="1651806346231" duration="872000" />
     </task>
     <servers />
   </component>
@@ -306,6 +310,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../../../../Java/jdk1.8.0_181/src.zip!/java/lang/Math.java">
