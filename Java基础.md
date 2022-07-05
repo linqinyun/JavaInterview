@@ -178,7 +178,7 @@ System.out.println(s1==s6);//false new出的对象，存放地址不同
 
 ### String、StringBuilder与StringBuffer的区别
 
-|          |     String     |     StringBuilder      |      StringBuffer      |
+|          |     String     |     StringBuffer      |      StringBuilder      |
 | :------: | :------------: | :--------------------: | :--------------------: |
 | 执行速度 |      最差      |          其次          |          最高          |
 | 线程安全 |    线程安全    |        线程安全        |       线程不安全       |
